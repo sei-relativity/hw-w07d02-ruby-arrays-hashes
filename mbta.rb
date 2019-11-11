@@ -11,35 +11,38 @@ def print_one_line(line, station_a, station_b)
   start_station = $subway[line].index(station_a)
   end_station = $subway[line].index(station_b)
   count = (end_station - start_station).abs
-  #   p start_station
-  #   p end_station
-  #   p count
-  if (start_station <= end_station)
-    for x in start_station..end_station
-      p "Rider arrives at #{line} Line and #{$subway[line].fetch(x)}."
-    end
-  else
-    for x in -start_station..end_station
-      p "Rider arrives at #{line} Line and #{$subway[line].fetch(x.abs)}."
-    end
-  end
-  count
+
+  if (start_station < end_station)
+    return $subway[line].slice(start_station, end_station)
+  elsif start_station > end_station
+    return $subway[line].slice(end_station, start_station).reverse
+  else return []   end
 end
 
 def stops_between_stations(start_line, start_station, end_line, end_station)
-  p 'Rider boards the train a #{start_line} Line and #{start_station}.'
   stops = 0
   if start_line == end_line
-    stops = print_one_line(start_line, start_station, end_station)
+    p "You must travel through the following stops on the #{start_line} line:"
+    arr = print_one_line(start_line, start_station, end_station)
+    stops = arr.length
+    p arr.join(" and ")
   else
-    stops = print_one_line(start_line, start_station, "Park Street")
-    p "Rider transfers from #{start_line} Line to #{end_line} Line at Park Street."
-    stops += print_one_line(end_line, "Park Street", end_station)
+    p "You must travel through the following stops on the #{start_line} line:"
+    arr = print_one_line(start_line, start_station, "Park Street")
+    stops = arr.length
+    p arr.join(" and ")
+
+    p "Change at Park Street."
+
+    p "Your trip continues through the following stops on #{end_line} Line:"
+    arr = print_one_line(end_line, "Park Street", end_station)
+    stops += arr.length
+    p arr.join(" and ")
   end
   p "#{stops}stops in total."
 end
 
-# p stops_between_stations("Red", "Alewife", "Red", "Alewife") # 0
-# p stops_between_stations("Red", "Alewife", "Red", "South Station") # 7
+p stops_between_stations("Red", "Alewife", "Red", "Alewife") # 0
+p stops_between_stations("Red", "Alewife", "Red", "South Station") # 7
 # p stops_between_stations("Red", "South Station", "Green", "Kenmore") # 6
-stops_between_stations("Red", "South Station", "Green", "Kenmore")
+# stops_between_stations("Red", "South Station", "Green", "Kenmore")
