@@ -15,5 +15,8 @@ if start_line==end_line
     return (lines[start_line.to_sym].index(start_station) - lines[end_line.to_sym].index(end_station)).abs
 end
 # General case if the rider changes station. compare, absolute, and add the difference between input stations and "Park Street"
-    return((lines[start_line.to_sym].index(start_station) - lines[start_line.to_sym].index("Park Street")).abs  + (lines[end_line.to_sym].index(end_station) - lines[end_line.to_sym].index("Park Street")).abs)
-end
+    return
+    {
+        (lines[start_line.to_sym].index(start_station) - lines[start_line.to_sym].index("Park Street")).abs  
+        + (lines[end_line.to_sym].index(end_station) - lines[end_line.to_sym].index("Park Street")).abs
+    }
