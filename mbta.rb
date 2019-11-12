@@ -1,45 +1,45 @@
 
 # your solution here
-subway_lines = {
-    red:[
-        'South Station',
-        'Park Street',
-        'Kendall',
-        'Central',
-        'Harvard',
-        'Porter',
-        'Davis',
-        'Alewife'
-    ],
-    green: [
-        'Government Center',
-        'Park Street',
-        'Boylston',
-        'Arlington',
-        'Copley',
-        'Hynes',
-        'Kenmore'
-    ],
-    orange:[
-        'North Station',
-        'Haymarket',
-        'Park Street',
-        'State',
-        'Downtown Crossing',
-        'Chinatown',
-        'Back Bay',
-        'Forest Hills'
-    ],
-}
+
 def stops_between_stations(start_line, start_station, end_line, end_station)
+    subway_lines = {
+        Red:[
+            'South Station',
+            'Park Street',
+            'Kendall',
+            'Central',
+            'Harvard',
+            'Porter',
+            'Davis',
+            'Alewife'
+        ],
+        Green: [
+            'Government Center',
+            'Park Street',
+            'Boylston',
+            'Arlington',
+            'Copley',
+            'Hynes',
+            'Kenmore'
+        ],
+        Orange:[
+            'North Station',
+            'Haymarket',
+            'Park Street',
+            'State',
+            'Downtown Crossing',
+            'Chinatown',
+            'Back Bay',
+            'Forest Hills'
+        ],
+    }
 
-
-    start_station = subway_lines[start_line.to_sym].index(start_station)
+    start_station_index = subway_lines[start_line.to_sym].index(start_station)
  
-     end_station = subway_lines[end_line.to_sym].index(end_station)
+     end_station_index = subway_lines[end_line.to_sym].index(end_station)
  
  
- if start_line === end_line
+ if (start_line == end_line)
     
     return (start_station_index - end_station_index).abs
 
@@ -54,9 +54,10 @@ def stops_between_stations(start_line, start_station, end_line, end_station)
     total_trip = trip_to_park_street + trip_to_destination 
 
     return total_trip
+ end
 end
 
-puts stops_between_stations("Red", "Alewife", "Red", "Alewife") # 0
-puts stops_between_stations("Red", "Alewife", "Red", "South Station") # 7
-puts stops_between_stations("Red", "South Station", "Green", "Kenmore") # 6
-puts stops_between_stations("Orange", "Forest Hills", "Green", "Kenmore") # 10
+puts stops_between_stations("Red", "Alewife", "Red", "Alewife") 
+puts stops_between_stations("Red", "Alewife", "Red", "South Station") 
+puts stops_between_stations("Red", "South Station", "Green", "Kenmore") 
+puts stops_between_stations("Orange", "Forest Hills", "Green", "Kenmore") 
