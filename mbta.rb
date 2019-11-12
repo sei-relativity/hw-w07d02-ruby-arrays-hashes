@@ -1,5 +1,4 @@
 
-# your solution here
 def stops_between_stations(start_line, start_station, end_line, end_station)
 
     subway_lines = {
@@ -24,7 +23,7 @@ def stops_between_stations(start_line, start_station, end_line, end_station)
     stops_until_destination = (end_station_index - end_line_park_street_index).abs
   
     total_stops = stops_until_park_street + stops_until_destination
-    
+
     return total_stops
   end
   
