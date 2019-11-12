@@ -50,6 +50,7 @@ def stops_between_stations(start_line, start_station, end_line, end_station)
   return total_stops
 end
 
-puts stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
-puts stops_between_stations('Red', 'Alewife', 'Red', 'South Station') # 7
-puts stops_between_stations('Red', 'South Station', 'Green', 'Kenmore') # 6
+puts stops_between_stations("Red", "Alewife", "Red", "Alewife") # 0
+puts stops_between_stations("Red", "Alewife", "Red", "South Station") # 7
+puts stops_between_stations("Red", "South Station", "Green", "Kenmore") # 6
+puts stops_between_stations("Orange", "Forest Hills", "Green", "Kenmore") # 10
