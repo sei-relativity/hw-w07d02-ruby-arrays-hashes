@@ -35,7 +35,7 @@ def stops_between_stations(start_line, start_station, end_line, end_station)
   start_station_index = subway_lines[start_line.to_sym].index(start_station)
   end_station_index   = subway_lines[end_line.to_sym].index(end_station)
 
-  if (start_line === end_line)
+  if (start_line == end_line)
     total_stops = (start_station_index - end_station_index).abs
     return total_stops
   end
