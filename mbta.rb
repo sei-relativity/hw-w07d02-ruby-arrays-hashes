@@ -8,13 +8,14 @@ def stops_between_stations (start_line, start_station, end_line, end_station)
     }
         
         total_stops = 0
-
-total_stops = (stations[end_line.to_sym].index("#{end_station}") - stations[start_line.to_sym].index("#{start_station}")).abs()
-
-#  first_trip =  (stations[start_line.to_sym].index("#{start_station}") - stations[start_line.to_sym].index("Park Street")).abs()
-#  second_trip = (stations[end_line.to_sym].index("#{end_station}") - stations[start_line.to_sym].index("Park Street")).abs()
-#  total_stops = first_trip + second_trip;
- 
+if(start_line == end_line)
+    total_stops = (stations[end_line.to_sym].index("#{end_station}") - stations[start_line.to_sym].index("#{start_station}")).abs
+else    
+    first_trip =  (stations[start_line.to_sym].index("#{start_station}") - stations[start_line.to_sym].index("Park Street")).abs()
+    second_trip = (stations[end_line.to_sym].index("#{end_station}") - stations[start_line.to_sym].index("Park Street")).abs()
+    total_stops = first_trip + second_trip;
+    
+end   
 end
 # test >> stations[:Red].index("Kendall") - stations[:Red].index("south station")
 p stops_between_stations('Red', 'Alewife', 'Red', 'Alewife') # 0
